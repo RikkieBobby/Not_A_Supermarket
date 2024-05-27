@@ -1,0 +1,87 @@
+html {
+    height: 100%;
+}
+
+body {
+    background: url('/media/homepage.jpg') no-repeat center center fixed;
+    background-size: cover;
+    height: calc(100vh - 164px);
+    font-family: Montserrat;
+    color: green;
+}
+
+#topnav {
+    background: green;
+    color: white;
+}
+
+.logo-font {
+    text-transform: uppercase;
+}
+
+.home-heading {
+    color: white;
+    background: rgba(56, 138, 24, 0.7);
+}
+
+.main-logo-link {
+    width: fit-content;
+}
+
+.shop-now-button {
+    background: white;
+    color: green;
+    min-width: 260px;
+}
+
+.btn-green {
+    background: white;
+    color: green;
+}
+
+.shop-now-button:hover,
+.shop-now-button:active,
+.shop-now-button:focus,
+.btn-green:hover,
+.btn-green:active,
+.btn-green:focus {
+    background: green;
+    color: white;
+}
+
+
+
+/* -------------------------------- Media Queries */
+
+/* Slightly larger container on xl screens */
+@media (min-width: 1200px) {
+    .container {
+      max-width: 80%;
+    }
+  }
+
+/* fixed top navbar only on medium and up */
+@media (min-width: 992px) {
+    .fixed-top-desktop-only {
+        position: fixed;
+        top: 0;
+        right: 0;
+        left: 0;
+        z-index: 1030;
+    }
+
+    .header-container {
+        padding-top: 164px;
+    }
+}
+
+/* pad the top a bit when navbar is collapsed on mobile */
+@media (max-width: 991px) {
+    .header-container {
+        padding-top: 116px;
+    }
+
+    body {
+        height: calc(100vh - 116px);
+    }
+}
