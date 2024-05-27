@@ -27,6 +27,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = [
     '8000-rikkiebobby-notasuperma-i41ej06zx01.ws.codeinstitute-ide.net',
+    '8000-rikkiebobby-notasuperma-70zvn97jieb.ws.codeinstitute-ide.net',
 ]
 
 
