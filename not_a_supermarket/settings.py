@@ -29,6 +29,7 @@ DEBUG = True
 ALLOWED_HOSTS = [
     '8000-rikkiebobby-notasuperma-i41ej06zx01.ws.codeinstitute-ide.net',
     '8000-rikkiebobby-notasuperma-70zvn97jieb.ws.codeinstitute-ide.net',
+    '8000-rikkiebobby-notasuperma-34me9c4n03f.ws.codeinstitute-ide.net',
 ]
 
 
@@ -135,6 +136,7 @@ CSRF_TRUSTED_ORIGINS = [
     "https://*.herokuapp.com",
     "https://.gitpod.com",
     "https://8000-rikkiebobby-notasuperma-70zvn97jieb.ws.codeinstitute-ide.net",
+    "https://8000-rikkiebobby-notasuperma-34me9c4n03f.ws.codeinstitute-ide.net",
 ]
 
 
@@ -170,9 +172,10 @@ USE_TZ = True
 
 
 # Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/5.0/howto/static-files/
+# https://docs.djangoproject.com/en/3.0/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
+STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
