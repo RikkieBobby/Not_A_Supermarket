@@ -5,10 +5,15 @@ from .models import Product, Category
 
 def all_products(request):
     products = Product.objects.all()
-
     query = None
+    categories = None
 
     if request.GET:
+        if 'category' in request.GET:
+            categories = request.GET['category'].split(',')
+            products = products.filter(category__name__in=categories)
+            categories = Category.objects.filter(name__in=categories)
+
         if 'q' in request.GET:
             query = request.GET['q']
             if not query:
@@ -18,7 +23,13 @@ def all_products(request):
             queries = Q(name__icontains=query) | Q(description__icontains=query)
             products = products.filter(queries)
 
-    return render(request, 'products/products.html', {'products': products})
+    context = {
+        'products': products,
+        'search_term': query,
+        'current_categories': categories,
+    }
+
+    return render(request, 'products/products.html', context)
 
 def product_detail(request, product_id):
     product = get_object_or_404(Product, pk=product_id)
@@ -27,4 +38,4 @@ def product_detail(request, product_id):
 def category_view(request, category_name):
     category = get_object_or_404(Category, name=category_name)
     products = Product.objects.filter(category=category)
-    return render(request, 'products/products.html', {'products': products, 'category': category})
+    return render(request, 'products/products.html', {'products': products, 'current_category': category})
