@@ -1,0 +1,71 @@
+[
+    {
+        "pk": 1,
+        "model": "products.product",
+        "fields": {
+            "sku": "bp551005",
+            "name": "Premium Ribeye Steak",
+            "description": "Not A Supermarkets own sourced Ribeye Steak, aged for 28 days and prepared onsite in our store",
+            "weight": "100g",
+            "price": 8.99,
+            "category": 1,
+            "image": "ribeyesteak.jpg"
+        }
+    },
+    {
+        "pk": 2,
+        "model": "products.product",
+        "fields": {
+            "sku": "fv009887",
+            "name": "Fresh Vine Tomatoes",
+            "description": "Fresh from spain, straight off the vine ripe tomatoes",
+            "weight": "250g",
+            "price": 5.95,
+            "category": 2,
+            "image": "vinetomato.jpg"
+        }
+    },
+    {
+        "pk": 3,
+        "model": "products.product",
+        "fields": {
+            "sku": "br996123",
+            "name": "Fresh Baked Sourdough",
+            "description": "Baked in our store this morning, sliced and ready for your table",
+            "weight": "750g",
+            "price": 4.49,
+            "category": 3,
+            "image": "sourdough.jpg"
+        }
+    },
+    {
+        "pk": 4,
+        "model": "products.product",
+        "fields": {
+            "sku": "dp445667",
+            "name": "Avonmore Fresh 2L Milk",
+            "description": "Avonmore's Irish milk, chilled and ready to be served",
+            "weight": "N/A",
+            "price": 2.29,
+            "category": 4,
+            "image": "avonmore2Lmilk.jpg"
+        }
+    },
+    {
+        "pk": 5,
+        "model": "products.product",
+        "fields": {
+            "sku": "ap122344",
+            "name": "Fairy Washing Liquid Small",
+            "description": "Perfect for washing up greasy dishes",
+            "weight": "N/A",
+            "price": 2.39,
+            "category": 5,
+            "image": "fairy-wash-small.jpg"
+        }
+    }
+]
+
+
+
+
