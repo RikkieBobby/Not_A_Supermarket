@@ -32,7 +32,7 @@
 </head>
 
 <body>
-    <header class="container-fluid fixed-top main-nav">
+    <header class="container-fluid fixed-top"> 
         <div id="topnav" class="row pt-lg-2 d-none d-lg-flex">
             <div class="col-12 col-lg-4 my-auto py-1 py-lg-0 text-center text-lg-left">
                 <a href="{% url 'home' %}" class="nav-link main-logo-link">
@@ -95,8 +95,45 @@
                 </ul>
             </div>
         </div>
+        <div class="row">
+            <nav class="navbar navbar-expand-lg w-100">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main-nav"
+                    aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                {% include 'includes/mobile-top-header.html' %}
+                {% include 'includes/main-nav.html' %}
+            </nav>
+        </div>
     </header>
 
+    <div class="container-fluid fixed-bottom">
+        <footer class="text-center text-lg-start">
+          <div class="container d-flex justify-content-center py-5 base-footer">
+            <button type="button" class="btn btn-green btn-lg btn-floating mx-2">
+                <a href="https://www.facebook.com/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+            </button>
+            <button type="button" class="btn btn-green btn-lg btn-floating mx-2">
+                <a href="https://www.youtube.com/" target="_blank"><i class="fab fa-youtube"></i></a>
+            </button>
+            <button type="button" class="btn btn-green btn-lg btn-floating mx-2">
+              <a href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram"></i></a> 
+            </button>
+            <button type="button" class="btn btn-green btn-lg btn-floating mx-2">
+                <a href="https://www.twitter.com/" target="_blank"><i class="fab fa-twitter"></i></a>
+            </button>
+          </div>
+      
+          <!-- Copyright -->
+          <div class="text-center p-3 text-white">
+            © 2020 Copyright:
+            <a class="text-white" href="https://mdbootstrap.com/" target="_blank">MDBootstrap.com</a>
+          </div>
+          <!-- Copyright -->
+        </footer>
+        
+      </div>
+      <!-- End of .container -->
     {% if messages %}
     <div class="message-container"></div>
     {% endif %}

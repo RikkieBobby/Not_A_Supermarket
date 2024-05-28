@@ -10,6 +10,14 @@ body {
     color: green;
 }
 
+a {
+    color: inherit; 
+}
+
+#main-nav {
+    background: rgba(255, 255, 255, 0.5);
+}
+
 #topnav {
     background: green;
     color: white;
