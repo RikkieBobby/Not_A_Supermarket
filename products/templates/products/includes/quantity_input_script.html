@@ -1,0 +1,21 @@
+<script type="text/javascript">
+    document.addEventListener('DOMContentLoaded', function() {
+        const quantityButtons = document.querySelectorAll('.quantity-button');
+        quantityButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const input = this.parentElement.querySelector('.quantity-input');
+                let value = parseInt(input.value);
+                if (this.getAttribute('data-type') === 'minus') {
+                    if (value > 1) {
+                        value--;
+                    }
+                } else {
+                    if (value < parseInt(input.getAttribute('max'))) {
+                        value++;
+                    }
+                }
+                input.value = value;
+            });
+        });
+    });
+</script>
