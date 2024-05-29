@@ -30,6 +30,7 @@ ALLOWED_HOSTS = [
     '8000-rikkiebobby-notasuperma-i41ej06zx01.ws.codeinstitute-ide.net',
     '8000-rikkiebobby-notasuperma-70zvn97jieb.ws.codeinstitute-ide.net',
     '8000-rikkiebobby-notasuperma-34me9c4n03f.ws.codeinstitute-ide.net',
+    '8000-rikkiebobby-notasuperma-p3tc77a92b7.ws.codeinstitute-ide.net',
 ]
 
 
@@ -137,6 +138,7 @@ CSRF_TRUSTED_ORIGINS = [
     "https://.gitpod.com",
     "https://8000-rikkiebobby-notasuperma-70zvn97jieb.ws.codeinstitute-ide.net",
     "https://8000-rikkiebobby-notasuperma-34me9c4n03f.ws.codeinstitute-ide.net",
+    "https://8000-rikkiebobby-notasuperma-p3tc77a92b7.ws.codeinstitute-ide.net",
 ]
 
 
@@ -185,4 +187,5 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-STANDARD_DELIVERY_PERCENTAGE = 5
+FREE_DELIVERY_THRESHOLD = 50
+STANDARD_DELIVERY_PERCENTAGE = 10
