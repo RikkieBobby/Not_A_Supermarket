@@ -1,0 +1,14 @@
+#card-element {
+    border: 1px solid #ced4da;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+fieldset {
+    margin-bottom: 20px;
+}
+
+.legend-label {
+    margin-bottom: 10px;
+    font-weight: bold;
+}
