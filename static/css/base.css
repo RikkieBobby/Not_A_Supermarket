@@ -57,6 +57,10 @@ a {
     color: white;
 }
 
+.text-green {
+    color: green;
+}
+
 .overlay {
 	height: 100%;
 	width: 100%;
