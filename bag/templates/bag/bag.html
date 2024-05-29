@@ -44,6 +44,7 @@
                                     <img src="{{ MEDIA_URL }}noimage.png" alt="{{ item.product.name }}" class="img-thumbnail me-2" style="width: 60px; height: 60px;">
                                     {% endif %}
                                     {{ item.product.name }}
+                                    <small>{{ item.product.weight }}</small>
                                 </td>
                                 <td>{{ item.quantity }}</td>
                                 <td>${{ item.product.price }}</td>
