@@ -5,23 +5,7 @@ from products.models import Product
 
 def view_bag(request):
     """ A view that renders the bag contents page """
-    bag = request.session.get('bag', {})
-    bag_items = []
-
-    for item_id, quantity in bag.items():
-        product = get_object_or_404(Product, pk=item_id)
-        total = product.price * quantity
-        bag_items.append({
-            'product': product,
-            'quantity': quantity,
-            'total': total,
-        })
-
-    context = {
-        'bag_items': bag_items,
-    }
-
-    return render(request, 'bag/bag.html', context)
+    return render(request, 'bag/bag.html')
 
 def add_to_bag(request, item_id):
     """ Add a quantity of the specified product to the shopping bag """
@@ -51,7 +35,7 @@ def adjust_bag(request, item_id):
         messages.success(request, f'Updated {product.name} quantity to {bag[item_id]}')
     else:
         bag.pop(item_id)
-        messages.success(request, f'Removed {product.name} from your bag')
+        messages.warning(request, f'Removed {product.name} from your bag')
 
     request.session['bag'] = bag
     return redirect(reverse('view_bag'))
@@ -63,10 +47,10 @@ def remove_from_bag(request, item_id):
         bag = request.session.get('bag', {})
 
         bag.pop(item_id)
-        messages.success(request, f'Removed {product.name} from your bag')
+        messages.warning(request, f'Removed {product.name} from your bag')
 
         request.session['bag'] = bag
-        return redirect(reverse('view_bag'))
+        return redirect(reverse('view_bag'))  # Redirect back to the bag page
 
     except Exception as e:
         messages.error(request, f'Error removing item: {e}')
