@@ -95,6 +95,8 @@ TEMPLATES = [
 ]
 
 
+MESSAGE_STORAGE = 'django.contrib.messages.storage.session.SessionStorage'
+
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 AUTHENTICATION_BACKENDS = (
