@@ -43,8 +43,8 @@
                                     {% else %}
                                     <img src="{{ MEDIA_URL }}noimage.png" alt="{{ item.product.name }}" class="img-thumbnail me-2" style="width: 60px; height: 60px;">
                                     {% endif %}
-                                    {{ item.product.name }}
-                                    <small>{{ item.product.weight }}</small>
+                                    {{ item.product.name }} 
+                                    <small>:{{ item.product.weight }}</small>
                                 </td>
                                 <td>{{ item.quantity }}</td>
                                 <td>${{ item.product.price }}</td>
@@ -103,6 +103,14 @@
                 </a>
             {% endif %}
         </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block page_footer %}
+<div class="container header-container">
+    <div class="row">
+        <div class="col"></div>
     </div>
 </div>
 {% endblock %}
