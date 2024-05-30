@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% load static %}
+{% load product_extras %}
+
+{% block page_header %}
+<div class="container header-container">
+    <div class="row">
+        <div class="col"></div>
+    </div>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="overlay"></div>
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <hr>
+            <h2 class="logo-font mb-4">Success! Your order will be out for delivery soon.</h2>
+            <hr>
+            <p>Thank you, a order conformation email will be sent to <strong>{{ order.email }}</strong></p>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12"></div>
+    </div>
+
+    <div class="row">
+        <div class="col-12 text-center">
+            <a href="{% url 'products' %}" class="btn btn-green">
+                <span class="icon">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                </span>
+                <span>Keep exploring our store!</span>
+            </a>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+
+
+{% block page_footer %}
+<div class="container header-container">
+    <div class="row">
+        <div class="col"></div>
+    </div>
+</div>
+{% endblock %}
+

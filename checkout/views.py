@@ -5,7 +5,7 @@ from django.views.decorators.http import require_POST
 from django.http import JsonResponse
 import stripe
 
-from .models import Order, OrderLineItem
+from .models import Order, OrderItem
 from .forms import OrderForm
 from bag.contexts import bag_contents
 from products.models import Product
@@ -37,12 +37,12 @@ def checkout(request):
                 try:
                     product = Product.objects.get(id=item_id)
                     if isinstance(item_data, int):
-                        order_line_item = OrderLineItem(
+                        order_item = OrderItem(
                             order=order,
                             product=product,
                             quantity=item_data,
                         )
-                        order_line_item.save()
+                        order_item.save()
                 except Product.DoesNotExist:
                     messages.error(request, (
                         "One of the products in your bag wasn't found in our database. "
@@ -95,6 +95,9 @@ def checkout_success(request, order_number):
     messages.success(request, f'Order successfully processed! \
         Your order number is {order_number}. A confirmation \
         email will be sent to {order.email}.')
+
+    print(f"STRIPE_SECRET_KEY: {settings.STRIPE_SECRET_KEY}")
+    print(f"STRIPE_PUBLIC_KEY: {settings.STRIPE_PUBLIC_KEY}")
 
     if 'bag' in request.session:
         del request.session['bag']
