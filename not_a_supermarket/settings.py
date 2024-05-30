@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
 import os
+import dj_database_url
 if os.path.exists('env.py'):
     import env
 from pathlib import Path
@@ -33,6 +34,8 @@ ALLOWED_HOSTS = [
     '8000-rikkiebobby-notasuperma-70zvn97jieb.ws.codeinstitute-ide.net',
     '8000-rikkiebobby-notasuperma-34me9c4n03f.ws.codeinstitute-ide.net',
     '8000-rikkiebobby-notasuperma-p3tc77a92b7.ws.codeinstitute-ide.net',
+    'not-a-supermarket-1c548043a1e4.herokuapp.com/',
+    'localhost',
 ]
 
 
@@ -128,14 +131,19 @@ WSGI_APPLICATION = 'not_a_supermarket.wsgi.application'
 
 
 # Database
-# https://docs.djangoproject.com/en/5.0/ref/settings/#databases
+# https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+if 'DATABASE_URL' in os.environ:
+    DATABASES = {
+        'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
     }
-}
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        }
+    }
 
 
 CSRF_TRUSTED_ORIGINS = [
