@@ -1,16 +1,32 @@
-from django.shortcuts import render, redirect, reverse, get_object_or_404
+from django.shortcuts import render, redirect, reverse, get_object_or_404, HttpResponse
 from django.conf import settings
 from django.contrib import messages
 from django.views.decorators.http import require_POST
+from django.views.decorators.csrf import csrf_exempt
 from django.http import JsonResponse
-import stripe, json
-
-from .models import Order, OrderItem
 from .forms import OrderForm
-from bag.contexts import bag_contents
+from .models import Order, OrderItem
 from products.models import Product
+from bag.contexts import bag_contents
+import stripe
+import json
 
 stripe.api_key = settings.STRIPE_SECRET_KEY
+
+
+@require_POST
+def cache_checkout_data(request):
+    try:
+        pid = request.POST.get('client_secret').split('_secret')[0]
+        stripe.PaymentIntent.modify(pid, metadata={
+            'bag': json.dumps(request.session.get('bag', {})),
+            'save_info': request.POST.get('save_info'),
+            'username': request.user,
+        })
+        return JsonResponse({'message': 'Success'}, status=200)
+    except Exception as e:
+        return JsonResponse({'error': str(e)}, status=400)
+
 
 def checkout(request):
     if request.method == 'POST':
