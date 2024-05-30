@@ -42,7 +42,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Handle form submission.
     const form = document.getElementById('payment-form');
     form.addEventListener('submit', async (event) => {
-        event.preventDefault();
+        event.preventDefault();;
 
         const { error, paymentIntent } = await stripe.confirmCardPayment(client_secret, {
             payment_method: {

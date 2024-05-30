@@ -16,14 +16,53 @@
     <div class="row">
         <div class="col">
             <hr>
-            <h2 class="logo-font mb-4">Success! Your order will be out for delivery soon.</h2>
+            <h2 class="logo-font mb-4">Order Successful!</h2>
             <hr>
-            <p>Thank you, a order conformation email will be sent to <strong>{{ order.email }}</strong></p>
         </div>
     </div>
-
     <div class="row">
-        <div class="col-12"></div>
+        <div class="col">
+            <p>Thank you for your order! Your order number is {{ order.order_number }}.</p>
+            <p>A confirmation email will be sent to {{ order.email }}.</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <hr>
+            <h4 class="logo-font mb-4">Order Summary</h4>
+            <hr>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12 col-lg-6 order-lg-last mb-5">
+            <p class="text-muted">Order Summary ({{ order.orderitems.count }})</p>
+            <div class="row">
+                <div class="col-7 offset-2">
+                    <p class="mb-1 mt-0 small text-muted">Item</p>
+                </div>
+            </div>
+            {% for item in order.orderitems.all %}
+                <div class="row">
+                    <div class="col-2 mb-1">
+                        <a href="{% url 'product_detail' item.product.id %}">
+                            {% if item.product.image %}
+                                <img class="w-100" src="{{ item.product.image.url }}" alt="{{ item.product.name }}">
+                            {% else %}
+                                <img class="w-100" src="{{ MEDIA_URL }}noimage.png" alt="{{ item.product.name }}">
+                            {% endif %}
+                        </a>
+                    </div>
+                    <div class="col-7">
+                        <p class="my-0"><strong>{{ item.product.name }}</strong></p>
+                        <p class="my-0 small text-muted">Qty: {{ item.quantity }}</p>
+                    </div>
+                    <div class="col-3 text-right">
+                       
+                    </div>
+                </div>
+            {% endfor %}
+            <hr class="my-0">
+        </div>
     </div>
 
     <div class="row">
